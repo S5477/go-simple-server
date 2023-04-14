@@ -18,7 +18,6 @@ func init() {
 
 func main() {
 	flag.Parse()
-	log.Println("Hello, World!")
 	config := api.NewConfig()
 
 	_, err := toml.DecodeFile(configPath, config)
@@ -29,7 +28,5 @@ func main() {
 
 	server := api.New(config)
 
-	if err := server.Run(); err != nil {
-		log.Fatal(err)
-	}
+	log.Fatal(server.Run())
 }
